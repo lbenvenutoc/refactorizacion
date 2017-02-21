@@ -1,0 +1,21 @@
+En el código se notan varias deficiencias, las mas comunes son las de las variables sin usar como initialized,
+tambien se observa que se tiene una variable String l que no se utiliza.
+
+En el código se observa tambien que el principio SOLID de Responsabilidad única para las clases se está violando, 
+ya que se tiene código incrustado de acceso a base de datos t de creaciond e archivos en la logica de negocio del logger.
+
+Se tiene tambien que en la ejecución del código se tienen muchos valores boolean para cada tipo de formato de salida, lo cual
+no es practico y lo  ydeal es que sea configurable.
+
+Asimismo, las propiedades de la base de datos tampoco estan configurables y se setean por un map de parametros.
+
+Dado que es un método void no hay forma de comparar con assert (Pruebas Unitarias).
+
+Mi solución fue:
+1.- Eliminar codigo innecesario.
+2.- Refactorizar código y crear clases que respeten el principio de Responsabilidad única
+3.- Configuración parametrizada por medio de un archivo plano y de constantes, por lo cual
+se envian configuran los formatos de salida con (1/2/...)
+Esto quiere decir que 1: Consola, 2:Archivo, etc
+
+
